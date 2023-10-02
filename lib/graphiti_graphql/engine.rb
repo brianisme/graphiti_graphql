@@ -65,6 +65,7 @@ module GraphitiGraphQL
     end
 
     initializer "graphiti_graphql.define_controller" do
+      # FIXME: this breaks lazy loading during app bootstrap
       require "#{Rails.root}/app/controllers/application_controller"
       app_controller = GraphitiGraphQL.config.federation_application_controller || ::ApplicationController
       # rubocop:disable Lint/ConstantDefinitionInBlock(Standard)

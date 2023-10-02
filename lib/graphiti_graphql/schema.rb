@@ -254,7 +254,8 @@ module GraphitiGraphQL
           field.argument :sort, [sort_type], required: false
         end
         field.argument :page, PageType, required: false
-        apply_connection_args(field)
+        # FIXME: this generates duplicate cursor args
+        #apply_connection_args(field)
 
         unless resource.filters.empty?
           filter_type = generate_filter_type(field, resource)
